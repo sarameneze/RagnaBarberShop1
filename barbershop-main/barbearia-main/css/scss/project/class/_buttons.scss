@@ -1,0 +1,61 @@
+// botão fechar
+.btn-close {
+    cursor: pointer;
+    padding: $s0-8;
+    margin: -8px -8px -8px $s3;
+    @include btnStates-svg (
+        $support-dark-3,
+        $support-dark-2,
+        $support-dark-1
+    );
+}
+
+// botão padrão
+.btn {
+    border-radius: 2px;
+    padding: $s1-2 $s3;
+    display: inline-block;   
+    cursor: pointer;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+// botão primário
+.btn-primary {    
+    color: $support-light-1;
+    @include btn-transition(background-color);
+    @include btnStates-bg (
+        $primary,
+        $primary-light-1,
+        $primary-light-2
+    );
+}
+
+// botão escuro
+.btn-dark {
+    color: $support-light-1;
+    @include btn-transition(background-color);
+    @include btnStates-bg (
+        $support-dark-5,
+        $support-dark-4,
+        $support-dark-3
+    );
+}
+
+// botão outline
+.btn-outline {
+    border: 2px solid $support-dark-4;
+    @include btn-transition(color, background-color);
+    @include btnStates-color(
+        $support-dark-4,
+        $support-light-1,
+        $support-light-2
+    );
+    @include btnStates-bg(
+        transparent,
+        $support-dark-4,
+        $support-dark-3
+    );
+}

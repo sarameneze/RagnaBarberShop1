@@ -1,0 +1,95 @@
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: $zIndex-modal;
+    overflow: hidden;
+    outline: 0;
+    justify-content: center;
+    align-items: center;
+
+    // JS
+    display: none;
+    @include general-transition(background-color);
+
+    &-dialog {
+        background-color: #FFF;
+        box-shadow: $shadow-8dp;
+        border-radius: 5px;
+        max-width: 500px;
+        margin-left: $gutter / 2;
+        margin-right: $gutter / 2;
+        overflow: hidden;
+
+        // JS
+        opacity: 0;
+        transform: translate3D(0, -$animation-displacementY, 0);
+        @include general-transition(opacity, transform);
+    }
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: $s1-6;
+        border-bottom: 1px solid $support-light-3;
+    }
+    &-header, &-body, &-footer {
+        padding: $s2;
+    }
+    &-footer {
+        display: none;
+    }
+
+    @include breakpoint-sm {
+        align-items: flex-end;
+
+        &-dialog {
+            max-width: 400px;
+            border-radius: 5px 5px 0 0;
+            transform: translate3D(0, $animation-displacementY, 0);
+        }
+        &-header, &-body, &-footer {
+            padding: $s1-6;
+        }
+        &-footer {
+            display: block;
+            border-top: 1px solid $support-light-3;
+            .btn {
+                border-radius: 5px;
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+}
+// JS
+.modal.show {
+    background-color: rgba(0, 0, 0, 0.6);
+
+    .modal-dialog {
+        opacity: 1;
+        transform: none;
+    }
+}
+.modal-scrollbar {
+    overflow: hidden;
+    @include desktop-supported {
+        padding-right: 17px;
+    }
+}
+
+// caixa de diálogo rolável
+.modal-scrollable {
+    .modal-dialog {
+        display: flex;
+        flex-direction: column;
+        max-height: 70%;
+    }
+    .modal-body {
+        overflow-y: auto;
+    }
+}

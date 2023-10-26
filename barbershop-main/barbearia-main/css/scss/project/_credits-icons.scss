@@ -1,0 +1,18 @@
+#modalCreditsIcons {
+    .modal-body {
+        ul li {
+            list-style: disc inside;
+        }
+        ul li + li {
+            margin-top: $s1-2;
+        }
+        a {
+            @include links;
+        }
+    }
+    @include breakpoint-sm {
+        .modal-body ul li + li {
+            margin-top: $s0-8;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+// Classes
+@import
+"project/class/grid-system",
+"project/class/typography",
+"project/class/buttons",
+"project/class/general";
+
+// Seções
+@import
+"project/header",
+"project/footer",
+"project/credits-icons";
+
+// Páginas - home
+@import
+"project/pages/home/intro",
+"project/pages/home/services",
+"project/pages/home/prices",
+"project/pages/home/about-team",
+"project/pages/home/testimonies",
+"project/pages/home/contact";
+
+// Páginas
+@import "project/pages/404";

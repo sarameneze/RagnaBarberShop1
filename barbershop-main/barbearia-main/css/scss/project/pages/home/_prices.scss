@@ -1,0 +1,91 @@
+.prices {
+    background-image: url("../images/scissors.png");
+    background-repeat: no-repeat;
+    background-position: 110% 120%;
+    background-color: $support-dark-4;
+    padding: $s6 0;
+
+   .section-intro .h2 {
+       color: $support-light-1;
+   }
+   .section-intro p {
+       color: $support-light-6;
+   }
+}
+.prices-list-container + .prices-list-container {
+    margin-top: $s3;
+}
+.prices-list-container {
+    max-width: 630px;
+    @include m-h-auto;
+
+    .small-text {
+        display: flex;
+        align-items: center;
+        gap: $s2-4;
+        margin-bottom: $s1-2;
+
+        &::after {
+            content: "";
+            display: inline-block;
+            width: 100%;
+            height: 1px;
+            background-color: $support-dark-3;
+        }
+    }
+    .prices-list li button {
+        padding: $s2;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $s2-4;
+        color: $support-light-1;
+        cursor: pointer;
+        @include btn-transition(background-color);
+        @include btnStates-bg(
+            transparent,
+            $support-dark-3,
+            $support-dark-2
+        );
+
+        span {
+            display: block;
+        }
+        span:last-child {
+            white-space: nowrap;
+            @include small-text;
+        }
+    }
+    .prices-list li:nth-child(even) button {
+        @include btnStates-bg (
+            $support-dark-3,
+            $support-dark-2,
+            $support-dark-1
+        );
+    }
+}
+.prices .cta {
+    margin-top: $s5;
+    text-align: center;
+}
+
+@include breakpoint-xl {
+    .prices {
+        background-image: none;
+    }
+}
+@include breakpoint-lg {
+    .prices {
+        padding-top: calc(6rem + 30px);
+    }
+}
+@include breakpoint-sm {
+    .prices {
+        padding-top: calc(3rem + 30px);
+        padding-bottom: $s3;
+        .cta {
+            margin-top: $s3;
+        }
+    }
+}

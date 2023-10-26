@@ -1,0 +1,250 @@
+.contact {
+    padding: 25rem 0;
+    position: relative;
+}
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .contact-dices {
+        @include col-3;
+        .contact-dices-item + .contact-dices-item {
+            border-top: 1px solid $support-light-3;
+        }
+        .contact-dices-item:first-child {
+            padding: $s1-8 0;
+        }
+        .contact-dices-item, .contact-dices-item a {
+            display: flex;
+            align-items: center;
+            column-gap: $s1-2;
+        }
+        .contact-dices-item > span {
+            color: $support-dark-4;
+        }
+        .contact-dices-item a {
+            width: 100%;
+            padding: $s1-8 0;
+            @include btn-transition(color);
+            @include btnStates-color (
+                $support-dark-4,
+                $primary,
+                $primary-light-1
+            );
+        }
+        .contact-dices-item path {
+            fill: $primary;
+        }
+    }
+    .contact-scheduling {
+        @include col-7;
+        .section-intro .h2 {
+            color: $support-light-1;
+        }
+    }
+    .contact-select {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        row-gap: $s0-8;
+        column-gap: $gutter;
+
+        .label {
+            flex: 1 100%;
+            color: $support-light-1;
+            display: block;
+        }
+        .dropdown-container {
+            flex: 1;
+            max-width: 300px;
+        }
+        .dropdown-btn {
+            width: 100%;
+            color: $support-light-6;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: $s0-8;
+            padding: $s1-2 $s1-8;
+            cursor: pointer;
+            border-radius: 2px;
+            @include btn-transition(
+                color, 
+                background-color, 
+                margin-bottom
+            );
+            @include btnStates-bg(
+                $support-dark-3,
+                $support-dark-2,
+                $support-dark-1,
+            );
+        }
+        .dropdown-btn::after {
+            color: $support-light-6;
+        }
+        .dropdown-btn.show,
+        .dropdown-btn.click {
+            background-color: $support-dark-2;
+        }
+        .dropdown-btn.active {
+            color: $primary-light-1;
+        }
+        .dropdown-menu {
+            background-color: $support-dark-3;
+            border: none;
+            border-radius: 2px;
+            margin-top: $s0-8;
+            .small-text {
+                color: $support-light-1;
+                padding: 0 $s1-8;
+            }
+            button {
+                display: block;
+                cursor: pointer;
+                width: 100%;
+                padding: $s0-8 $s2-4;
+
+                @include btn-transition(color, background-color);
+                @include btnStates-color(
+                    $support-light-6,
+                    $support-light-1,
+                    $primary-light-1,
+                );
+                @include btnStates-bg(
+                    $support-dark-3,
+                    $support-dark-2,
+                    $support-dark-1,
+                );
+            }
+            button.active {
+                cursor: default;
+                color: $primary-light-1;
+                background-color: $support-dark-1;
+            }
+            > *:first-child {
+                padding-top: $s1-2;
+            }
+            > *:last-child {
+                padding-bottom: $s1-2;
+            }
+        }
+    }
+}
+.contact-dark {
+    background-color: $support-dark-4;
+    width: 60%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+.google-maps {
+    margin-top: $s8;
+    margin-bottom: -$s6;
+    iframe {
+        width: 100%;
+        height: 600px;
+        border-radius: 2px;
+        box-shadow: $shadow-8dp;
+    }
+}
+
+@include breakpoint-xxl {
+    .google-maps iframe {
+        height: 500px;
+    }
+}
+
+@include breakpoint-xl {
+    .contact-container .contact-scheduling {
+        @include col-8;
+    }
+    .contact-dark {
+        width: 68%;
+    }
+}
+
+@include breakpoint-lg {
+    .contact {
+        padding: 10rem 0;
+    }
+    .contact-container {
+        flex-direction: column;
+        align-items: initial;
+        justify-content: initial;
+        gap: $gutter;
+    
+        .contact-dices {
+            width: 100%;
+            order: 1;
+            .contact-dices-item + .contact-dices-item {
+                border-color: $support-dark-3;
+            }
+            .contact-dices-item > span {
+                color: $support-light-1;
+            }
+            .contact-dices-item a {
+                @include btn-transition(color);
+                @include btnStates-color (
+                    $support-light-1,
+                    $primary,
+                    $primary-light-1
+                );
+            }
+        }
+        .contact-scheduling {
+            width: 100%;
+        }
+        .contact-select .dropdown-container {
+            max-width: initial;
+            flex: 1 40%;
+
+        }
+        .contact-select .btn {
+            flex: 1 40%;
+        }
+    }
+    .contact-dark {
+        width: 97.5%;
+    }
+    .google-maps {
+        margin-top: $s6;
+        iframe {
+            height: 400px;
+        }
+    }
+}
+@include breakpoint-md {
+    .contact-container .contact-select .dropdown-container,
+    .contact-container .contact-select .btn {
+        flex: 1 100%;
+    }
+    .contact-container .contact-select .btn {
+        margin-top: calc(15px - 8px);
+    }
+    .contact-container .contact-select .dropdown-menu {
+        box-shadow: none;
+        position: relative;
+        margin-top: 0;
+    }
+    .contact-container .contact-select .dropdown-btn.show {
+        margin-bottom: $s0-8;
+    }
+}
+@include breakpoint-sm {
+    .contact {
+        padding: $s6 0;
+    }
+    .contact-container {
+        padding-left: $s3;
+    }
+    .google-maps {
+        margin-top: $s3;
+        margin-bottom: -$s3;
+        iframe {
+            height: 350px;
+        }
+    }
+}

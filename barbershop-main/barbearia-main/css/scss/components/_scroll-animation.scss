@@ -1,0 +1,28 @@
+/*
+    NOTA DE USO
+
+    1. Sempre use animações no eixo X em um elemento que está dentro do container para não criar a barra de rolagem horizontal.
+*/
+
+[data-scrollAnimation] {
+    opacity: 0;
+    @include animation-transition(opacity, transform)
+}
+
+[data-scrollAnimation="fadeInDown"] {
+    transform: translate3D(0, -$animation-displacementY, 0);
+}
+[data-scrollAnimation="fadeInLeft"] {
+    transform: translate3D($animation-displacementX, 0, 0);
+}
+[data-scrollAnimation="fadeInTop"] {
+    transform: translate3D(0, $animation-displacementY, 0);
+}
+[data-scrollAnimation="fadeInRight"] {
+    transform: translate3D(-$animation-displacementX, 0, 0);
+}
+
+[data-scrollAnimation].animate {
+    opacity: 1;
+    transform: none;
+}

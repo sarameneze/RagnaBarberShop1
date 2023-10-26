@@ -1,0 +1,115 @@
+.about {
+    background-color: $support-light-2;
+    padding: $s6 0;
+
+    .section-intro .h2 {
+        color: $support-dark-4;
+    }
+    .section-intro p {
+        color: $support-light-5;
+    }
+}
+.about-team {
+    display: flex;
+    gap: $gutter;
+    overflow-x: auto;
+    
+    cursor: grab;
+    @include desktop-supported {
+        overflow-x: hidden;
+    }
+    &.active {
+        cursor: grabbing;
+    }
+}
+.about-person {
+    background-color: #FFF;
+    display: flex;
+    flex: 1 0 calc(50% - 35px);
+
+    .about-img {
+        flex: 1 1 40%;
+        img {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+    .about-texts {
+        align-self: center;
+        flex: 1 1 60%;
+        padding: $s4;
+        .h4 {
+            color: $support-dark-4;
+            margin-bottom: $s0_8;
+        }
+        p {
+            color: $support-light-5;
+            margin: $s3 0;
+        }
+        .social-networks {
+            display: flex;
+            gap: $s2;
+        }
+        .social-networks a {
+            @include btnStates-svg(
+                $primary,
+                $primary-light-1,
+                $primary-light-2
+            );
+        }
+    }
+}
+
+@include breakpoint-xl {
+    .about-person {
+        flex: 1 0 65%;
+    }
+}
+@include breakpoint-lg {
+    .about-person {
+        flex: 1 0 92%;
+    }
+}
+@include breakpoint-md {
+    .about-team{
+        gap: $gutter / 2;
+    }
+    .about-person {
+        flex: 1 0 82%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: $s4;
+    
+        .about-img {
+            flex: 0 0 auto;
+            overflow: hidden;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: $s2;
+            img {
+                position: absolute;
+                top: -12px;
+                height: 230px;
+            }
+        }
+        .about-texts {
+            padding: 0;
+        }
+    }
+}
+@include breakpoint-sm {
+    .about {
+        padding: $s3 0;
+    }
+    .about-person {
+        padding: $s3 $s2;
+        .about-texts p {
+            margin: $s2 0;
+        }
+    }
+}

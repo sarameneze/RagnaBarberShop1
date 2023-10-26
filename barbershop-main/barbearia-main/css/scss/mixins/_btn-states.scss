@@ -1,0 +1,58 @@
+// svg fill
+@mixin btnStates-svg($current, $hover, $active) {
+    path {
+        fill: $current;
+        @include btn-transition(fill);
+    }
+    @include desktop-supported {
+        &:hover path {
+            fill: $hover;
+        }
+    }
+    &:active path {
+        fill: $active;
+    }
+}
+// svg stroke
+@mixin btnStates-svg-stroke($current, $hover, $active) {
+    path {
+        stroke: $current;
+        @include btn-transition(stroke);
+    }
+    @include desktop-supported {
+        &:hover path {
+            stroke: $hover;
+        }
+    }
+    &:active path {
+        stroke: $active;
+    }
+}
+
+// color
+@mixin btnStates-color($current, $hover, $active) {
+    color: $current;
+
+    @include desktop-supported {
+        &:hover {
+            color: $hover;
+        }
+    }
+    &:active {
+        color: $active;
+    }
+}
+
+// background
+@mixin btnStates-bg($current, $hover, $active) {
+    background-color: $current;
+
+    @include desktop-supported {
+        &:hover  {
+            background-color: $hover;
+        }
+    }
+    &:active  {
+        background-color: $active;
+    }
+}

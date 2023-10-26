@@ -1,0 +1,71 @@
+/*
+    PROJETO
+*/
+
+@mixin small-text {
+    font-size: $small;
+    font-weight: 700;
+    color: $primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+
+/*
+    PADRÃO
+*/
+
+// Centralização
+@mixin m-h-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+// Consulta de mídia para aplicar estilizações somente em desktops
+@mixin desktop-supported {
+    @media not all and (hover: none) {
+        @content;
+    }
+}
+
+// links
+@mixin links {
+    cursor: pointer;
+    @include btnStates-color (
+        $primary, // current
+        $primary-light-1, // hover
+        $primary-light-2 // active
+    );
+}
+
+
+/*
+    TRANSIÇÕES
+*/
+
+@mixin timing-function {
+    transition-timing-function: ease-in-out;
+}
+
+// Transições gerais
+@mixin general-transition($property...) {
+    transition-property: $property;
+    transition-duration: 300ms;
+    @include timing-function;
+}
+
+// Transições para estados de botões (:hover, :active)
+@mixin btn-transition($property...) {
+    transition-property: $property;
+    transition-duration: 200ms;
+    @include timing-function;
+}
+
+// Transições para animações de entrada e ao scroll
+@mixin animation-transition($property...) {
+    transition-property: $property;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+}

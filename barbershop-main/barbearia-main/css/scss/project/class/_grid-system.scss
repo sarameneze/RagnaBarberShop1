@@ -1,0 +1,22 @@
+.container {
+    max-width: 1320px;
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+
+    @include m-h-auto;
+    @include breakpoint-xxl {
+        max-width: 1140px;
+    }
+    @include breakpoint-xl {
+        max-width: 960px;
+    }
+    @include breakpoint-lg {
+        max-width: 720px;
+    }
+    @include breakpoint-md {
+        max-width: 540px;
+    }
+    @include breakpoint-sm {
+        max-width: 100%;
+    }
+}

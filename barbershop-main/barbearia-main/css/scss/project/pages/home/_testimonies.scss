@@ -1,0 +1,133 @@
+.testimonies {
+    background-color: $support-dark-4;
+    padding: $s8 0;
+}
+.testimonies-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: $gutter;
+
+    .section-intro {
+        margin-bottom: 0;
+        @include col-6;
+        .h2 {
+            color: $support-light-1;
+        }
+    }
+    .testimonies-card {
+        @include col-6;
+        padding: $s4;
+        background-color: $support-dark-3;
+        text-align: center;
+        position: relative;
+
+        .testimonies-img {
+            margin-bottom: $s3;        
+        }
+        .testimonies-img svg {
+            @include m-h-auto;
+        }
+        .testimonies-img path {
+            fill: $primary;
+        }
+        .testimonies-slide {
+            overflow-x: hidden;
+        }
+        .testimonies-slide p {
+            max-width: 450px;
+            @include m-h-auto;
+            color: $support-light-5;
+            margin-bottom: $s1-2;
+        }
+        .testimonies-slide span {
+            color: $support-light-1;
+            font-weight: 700;
+        }
+        .testimonies-btn {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            padding: 0 $s3;
+            cursor: pointer;
+
+            path {
+                stroke-width: 1.5px
+            }
+            @include btnStates-svg-stroke(
+                $primary,
+                $support-light-1,
+                $support-light-2
+            );
+            &.btn-prev {
+                left: 0;
+            }
+            &.btn-next {
+                right: 0;
+            }
+        }
+    }
+}
+
+@include breakpoint-xxl {
+    .testimonies-container .testimonies-card .testimonies-slide p {
+        max-width: 400px;
+    }
+}
+@include breakpoint-xl {
+    .testimonies-container {
+        .section-intro {
+            @include col-5;
+        }
+        .testimonies-card {
+            @include col-7;
+        }
+    }
+}
+@include breakpoint-lg {
+    .testimonies {
+        padding: $s6 0;
+    }
+    .testimonies-container {
+        flex-direction: column;
+        align-items: initial;
+        justify-content: initial;
+        gap: $gutter;
+        .section-intro {
+            width: initial;
+        }
+        .testimonies-card {
+            width: initial;
+            .testimonies-slide p {
+                max-width: 500px;
+            }
+        }
+    }
+}
+@include breakpoint-md {
+    .testimonies-container .testimonies-card .testimonies-btn {
+        display: none;
+    }
+    .testimonies-container .testimonies-card {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+    .testimonies-container .testimonies-card .testimonies-slide {
+        overflow-x: initial;
+    }
+    .testimonies-container .testimonies-card .testimonies-slide li {
+        padding: 0 $s2 $s4;
+    }
+}
+@include breakpoint-sm {
+    .testimonies {
+        padding: $s3 0;
+    }
+    .testimonies-container .testimonies-card {
+        padding-top: $s3;
+    }
+    .testimonies-container .testimonies-card .testimonies-slide li {
+        padding-bottom: $s3;
+    }
+}

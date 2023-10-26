@@ -1,0 +1,111 @@
+.intro {
+    padding-top: 97px;
+    position: relative;
+}
+.intro-dark {
+    background-color: $support-dark-4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    width: calc(40.8%  - 80px);
+}
+.intro-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: $s6;
+
+    .intro-img {
+        position: relative;
+        z-index: 1;
+        top: 60px;
+        img {
+            border-radius: 2px;
+        }
+    }
+
+    .intro-text {
+        @include col-6;
+
+        .h1 {
+            color: $support-dark-4;
+        }
+        p {
+            color: $support-light-5;
+            margin: $s3 0;
+            max-width: 500px;
+        }
+    }
+}
+
+@include breakpoint-xxl {
+    .intro-dark {
+        width: calc(33.5%  - 50px);
+    }
+
+    .intro-container {
+        .intro-img {
+            top: 30px;
+            img {
+                object-fit: cover;
+                height: 530px;
+            }
+        }
+        .intro-text {
+            @include col-8;
+        }
+    }
+}
+@include breakpoint-xl {
+    .intro-dark {
+        width: calc(36.5% - 50px);
+    }
+}
+@include breakpoint-lg {
+    .intro {
+        padding-top: 93px;
+    }
+    .intro-dark {
+        top: initial;
+        width: 100%;
+        height: calc(600px / 2);
+    }
+    .intro-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: initial;
+        padding-top: $s4;
+    
+        .intro-img {
+            order: 1;
+            img {
+                height: 600px;
+                box-shadow: $shadow-8dp;
+            }
+        }
+        .intro-text {
+            width: 100%;
+            text-align: center;
+            p {
+                @include m-h-auto;
+            }
+        }
+    }
+}
+@include breakpoint-sm {
+    .intro {
+        padding-top: 89px;
+    }
+    .intro-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: initial;
+        padding-top: $s3;
+
+        .intro-img img {
+            height: initial;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.dropdown-btn::after {
+    content: "\25BC";
+    margin-left: $s0-4;
+    font-size: 1.4rem;
+}
+// JS
+.dropdown-btn.show::after {
+    content: "\25B2";
+}
+
+.dropdown-menu {
+    box-shadow: $shadow-dropdown;
+    position: absolute;
+    z-index: $zIndex-dropdown;
+    overflow: hidden;
+
+    // JS
+    display: none;
+    height: 0;
+    @include general-transition(height);
+    &.show {
+        display: block;
+    }
+}

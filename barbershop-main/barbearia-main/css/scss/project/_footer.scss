@@ -1,0 +1,52 @@
+.footer {
+    background-color: $support-dark-4;
+    padding-top: calc(6rem * 2);
+    padding-bottom: $s6;
+    text-align: center;
+
+    .footer-text p {
+        max-width: 500px;
+        margin-top: $s1-8;
+        @include m-h-auto;
+        color: $support-light-6;
+    }
+    .footer-copy {
+        border-top: 1px solid $support-dark-3;
+        margin-top: $s4;
+        padding-top: calc(4rem - 8px);
+
+        button, a {
+            @include m-h-auto;
+            padding: $s0-8;
+            cursor: pointer;
+            @include btn-transition(color);
+        }
+        button {
+            display: block;
+            @include btnStates-color(
+                $support-light-6,
+                $primary,
+                $primary-light-1
+            );
+        }
+        a {
+            display: inline-block;
+            @include btnStates-color(
+                $support-light-1,
+                $primary,
+                $primary-light-1
+            );
+        }
+    }
+}
+
+@include breakpoint-sm {
+    .footer {
+        padding-top: calc(3rem * 2);
+        padding-bottom: $s3;
+        .footer-copy {
+            margin-top: $s2;
+            padding-top: calc(2rem - 8px);
+        }
+    }
+}

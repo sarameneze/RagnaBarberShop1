@@ -1,0 +1,38 @@
+// Bibliotecas
+@import 
+"libraries/normalize",
+"libraries/meyer-web-reset",
+"libraries/rfs",
+"libraries/glider";
+
+// Variáveis
+@import
+"variables/colors",
+"variables/spacings",
+"variables/typographic-scale",
+"variables/general";
+
+// Mixins
+@import
+"mixins/responsive",
+"mixins/btn-states",
+"mixins/columns",
+"mixins/general";
+
+// Customizações das bibliotecas
+@import 
+"custom/rfs",
+"custom/reset";
+
+// Componentes
+@import "components/menu-mobile";
+@import "components/dropdown-menu";
+@import "components/modal-window";
+
+// Projeto
+@import "project";
+
+// Animações
+@import
+"custom/simple-anime",
+"components/scroll-animation";

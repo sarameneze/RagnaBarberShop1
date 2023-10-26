@@ -1,0 +1,33 @@
+.page-404 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-404 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    padding: $s6 0;
+    p {
+        max-width: 500px;
+        @include m-h-auto;
+        margin-top: $s3;
+        margin-bottom: $s3;
+    }
+
+    // Responsive
+    @include breakpoint-sm {
+        padding: $s3 0;
+        p {
+            margin-top: $s2;
+            margin-bottom: $s2;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+        }
+    }
+}

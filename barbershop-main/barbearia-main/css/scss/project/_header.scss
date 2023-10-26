@@ -1,0 +1,152 @@
+.header {
+    background: transparent;
+    position: fixed;
+    top: 0;
+    z-index: $zIndex-header;
+    width: 100%;
+    padding: $s2 0;
+    @include general-transition(
+        padding, 
+        background-color,
+        -webkit-backdrop-filter,
+        backdrop-filter,
+        box-shadow,
+        );
+}
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-menu > ul {
+    display: flex;
+    align-items: center;
+}
+.header-menu .menu-item {
+    a, button {
+        cursor: pointer;
+        white-space: nowrap;
+        display: block;
+        padding: $s1-2 $s1-6;
+
+        @include btn-transition(color);
+        @include btnStates-color(
+            $support-dark-6,
+            $primary,
+            $primary-light-1,
+        );
+    }
+    a.active,
+    button.active {
+        color: $primary;
+    }
+    a.active {
+        cursor: default;
+    }
+    &:last-child > a,
+    &:last-child > button {
+        padding-right: 0;
+    }
+}
+.header-menu .menu-item-cta {
+    margin-left: $s1-2;
+}
+
+.header.header-scrolling {
+    padding: 1rem 0;
+    background-color: rgba(36, 36, 36, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    box-shadow: $shadow-8dp;
+
+    .header-menu .menu-item a,
+    .header-menu .menu-item button {
+        @include btnStates-color (
+            $support-light-1,
+            $primary,
+            $primary-light-1
+        );
+    }
+    .header-menu .menu-item a.active,
+    .header-menu .menu-item button.active {
+        color: $primary;
+    }
+    .header-menu .menu-item-cta .btn {
+        border-color: $support-light-1;
+
+        @include btnStates-color(
+            $support-light-1,
+            $support-dark-3,
+            $support-dark-4,
+        );
+        @include btnStates-bg(
+            transparent,
+            $support-light-1,
+            $support-light-2,
+        );
+    }
+    .header-menu .menu-item-cta .btn.active {
+        cursor: default;
+        color: $support-dark-3;
+        background-color: $support-light-1;
+    }
+}
+
+
+@include breakpoint-lg {
+    .header {
+        background-color: #FFF;
+    }
+    .header-menu {
+        flex: 1 100%;
+        // JS
+        display: none;
+        height: 0;
+        overflow: hidden;
+        @include general-transition(height);
+        &.show {
+            display: block;
+        }
+        > ul {
+            display: block;
+        }
+        .menu-item + .menu-item {
+            border-top: 1px solid $support-light-3;
+        }
+        .menu-item:first-child a,
+        .menu-item:first-child button {
+            padding-top: $s1-2 * 2;
+        }
+        .menu-item a,
+        .menu-item button {
+            width: 100%;
+            padding: $s1-2 0;
+        }
+        .menu-item-cta {
+            margin-left: 0;
+        }
+    }
+    .header-scrolling {
+        .header-btn-mobile, .menu-item + .menu-item {
+            border-color: $support-light-5;
+        }
+        .header-btn-mobile .icon {
+            color: $support-light-1;
+        }
+        .header-btn-mobile:active .icon {
+            &:active {
+                color: $support-light-2;
+            }
+        }
+    }
+}
+
+@include breakpoint-sm {
+    .header .logo {
+        padding: $s1-2 $s5;
+    }
+    .header-menu .menu-item-cta .btn {
+        width: 100%;
+    }
+}
